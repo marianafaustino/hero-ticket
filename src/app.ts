@@ -1,5 +1,6 @@
 import express, { Application } from "express"
 import { connect } from "./infra/database"
+import { errorMiddleware } from "./middlewares/error.middlewares"
 
 
 class App{
@@ -23,7 +24,7 @@ class App{
     }
 
     interceptionError(){
-        //this.app.use()
+        this.app.use(errorMiddleware)
     }
 
     listen(){
