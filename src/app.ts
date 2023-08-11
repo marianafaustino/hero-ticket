@@ -1,10 +1,12 @@
 import express, { Application } from "express"
 import { connect } from "./infra/database"
 import { errorMiddleware } from "./middlewares/error.middlewares"
+import { EventRoutes } from "./routes/event.routes"
 
 
 class App{
     public app: Application
+    private eventRoutes = new EventRoutes()
 
     constructor(){
         this.app = express()
@@ -20,7 +22,7 @@ class App{
     }
 
     initializeRoutes(){
-        //this.app.use('/',)
+        this.app.use('/events', this.eventRoutes.router)
     }
 
     interceptionError(){
