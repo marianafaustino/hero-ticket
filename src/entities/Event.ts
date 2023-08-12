@@ -6,9 +6,10 @@ class Event {
     constructor(
         public title: string,
         public location: Location,
-        public data: Date,
+        public date: Date,
         public description: string,
         public banner: string,
+        public flyers: string[],
         public cupons: string[],
         public participantes: User[],
         public price: Price[],

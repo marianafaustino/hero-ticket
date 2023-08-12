@@ -1,4 +1,4 @@
-import { NextFunction } from "express"
+import { NextFunction, Request, Response } from "express"
 import { HttpException } from "../interfaces/HttpException"
 
 export function errorMiddleware(
@@ -7,8 +7,8 @@ export function errorMiddleware(
     res: Response, 
     next: NextFunction){
 
-    const status: Number = err.status ?? 500
-    const message: string = err.message ?? 'Erro interno'
+    const status: number = err.status ?? 500
+    const message: String = err.message ?? 'Erro interno'
 
     res.status(status).json({
         status,
