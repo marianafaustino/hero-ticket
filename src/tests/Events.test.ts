@@ -11,6 +11,7 @@ describe('Event Test', ()=>{
             title: 'jorge e Matheus',
             price: [{sector: 'Pista', amount: '20'}],
             description: 'Evento descrição',
+            categories: ['show'],
             city: 'Belo Horizonte',
             location:{
                 latitude: '-19.8658619',
@@ -24,6 +25,7 @@ describe('Event Test', ()=>{
         .post('/events')
         .field('title', event.title)
         .field('description', event.description)
+        .field('categories', event.categories)
         .field('city', event.city)
         .field('cupons', event.cupons)
         .field('location[latitude]', event.location.latitude)
