@@ -20,7 +20,7 @@ class EventUseCase{
             throw new HttpException(400, 'Localização é requerida')
         }
 
-        const cityName = getCityNameByCoordinates(
+        const cityName =  this.getCityNameByCoordinates(
             eventData.location.latitude,
             eventData.location.longitude,
         )
@@ -29,10 +29,7 @@ class EventUseCase{
         return result
     } 
 
-    private async getCityNameByCoordinates(
-        latitude,
-        longitude,
-    ){
+    private async getCityNameByCoordinates(latitude: string,longitude: string){
         const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCRwGHzLQ8TXJeTpM5Xi0LkPrl6wXTeWik`)
         console.log('response', response.data)
     }
